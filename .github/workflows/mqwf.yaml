@@ -2,9 +2,9 @@
 name: mqwf
 
 on:
-  push:
+  #push:
   pull_request:
-    branches: [next]
+    branches: [main]
   merge_group:
     types: [checks_requested]
 
