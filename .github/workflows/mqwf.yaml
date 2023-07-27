@@ -7,6 +7,7 @@ on:
   pull_request:
     branches: [main]
   merge_group:
+    branches: [feat]
 
 defaults:
   run:
@@ -22,7 +23,7 @@ jobs:
         hostname
 
   slow:
-    if: (github.event_name == 'merge_group')
+    if: contains(github.ref_name, 'queue')
     runs-on: ubuntu-latest
 
     steps:
