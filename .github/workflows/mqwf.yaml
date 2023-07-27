@@ -2,11 +2,13 @@
 name: mqwf
 
 on:
-  pull_request:
-    branches: [main, next]
   push:
     branches: [main, next]
     tags: ["v*"]
+  pull_request:
+    branches: [main, next]
+  merge_group:
+    branches: [main, next]
 
 defaults:
   run:
