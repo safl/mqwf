@@ -30,3 +30,14 @@ jobs:
       run: |
         sleep 10
         hostname
+
+  slow2:
+    if: contains(github.ref_name, 'queue')
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Something slow
+      run: |
+        sleep 10
+        hostname
+        afadfs
