@@ -4,8 +4,9 @@ name: mqwf
 on:
   push:
   pull_request:
+    branches: [next]
   merge_group:
-      types: [checks_requested]
+    types: [checks_requested]
 
 defaults:
   run:
