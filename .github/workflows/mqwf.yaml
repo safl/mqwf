@@ -3,9 +3,7 @@ name: mqwf
 
 on:
   push:
-    branches: ["*queue*main*"]
   pull_request:
-    branches: [main]
   merge_group:
 
 defaults:
