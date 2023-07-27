@@ -3,7 +3,9 @@ name: mqwf
 
 on:
   push:
+    - ["*readonly*"]
   pull_request:
+    - [main, next]
   merge_group:
 
 defaults:
