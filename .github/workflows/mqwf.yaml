@@ -37,8 +37,8 @@ jobs:
         hostname
 
   slow:
-    #if: contains(github.ref_name, 'gh-readonly-queue')
-    if: contains('merge_group', github.event_name)
+    if: contains(github.ref_name, 'gh-readonly-queue')
+    #if: contains('merge_group', github.event_name)
     runs-on: ubuntu-latest
 
     steps:
@@ -48,8 +48,8 @@ jobs:
         hostname
 
   slow2:
-    #if: contains(github.ref_name, 'gh-readonly-queue')
-    if: contains('merge_group', github.event_name)
+    if: contains(github.ref_name, 'gh-readonly-queue')
+    #if: contains('merge_group', github.event_name)
     runs-on: ubuntu-latest
 
     steps:
