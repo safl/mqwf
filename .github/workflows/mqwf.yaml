@@ -1,0 +1,60 @@
+---
+name: mqwf
+
+
+on:
+  push:
+    branches: [main, next]
+    tags: ['v*']
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [next]
+  merge_group:
+    types: [checks_requested]
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 'Job'
+        required: true
+        default: docgen
+        type: choice
+        options:
+        - analyze
+        - build-and-test
+        - docgen
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  fast:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Something fast
+      run: |
+        hostname
+
+  slow:
+    #if: contains(github.ref_name, 'gh-readonly-queue')
+    if: contains('merge_group', github.event_name)
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Something slow
+      run: |
+        sleep 10
+        hostname
+
+  slow2:
+    #if: contains(github.ref_name, 'gh-readonly-queue-foo')
+    if: contains('merge_group', github.event_name)
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Something slow
+      run: |
+        sleep 10
+        hostname
+        afadfs
